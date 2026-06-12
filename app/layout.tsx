@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -9,10 +8,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://recovery-energy-grid.vercel.app";
+
+const title = "Recovery Energy Grid | Цифровий двійник енергомережі";
+const description =
+  "Recovery Energy Grid — цифровий двійник енергомережі України. ШІ-аналіз пошкоджень, прогнозування відключень та автоматичний план відновлення живлення.";
+
 export const metadata: Metadata = {
-  title: "Recovery Energy Grid | Цифровий двійник енергомережі",
-  description:
-    "Recovery Energy Grid — цифровий двійник енергомережі України. ШІ-аналіз пошкоджень, прогнозування відключень та автоматичний план відновлення живлення.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
   keywords: [
     "Recovery Energy Grid",
     "цифровий двійник",
@@ -22,6 +28,36 @@ export const metadata: Metadata = {
     "ENTSO-E",
     "відновлення енергетики",
   ],
+  authors: [{ name: "Recovery Energy Grid" }],
+  creator: "Recovery Energy Grid",
+  openGraph: {
+    type: "website",
+    locale: "uk_UA",
+    url: siteUrl,
+    siteName: "Recovery Energy Grid",
+    title,
+    description,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Recovery Energy Grid — цифровий двійник енергомережі",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/twitter-image"],
+    creator: "@RecoveryGridBot",
+    site: "@RecoveryGridBot",
+  },
+  other: {
+    "telegram:channel": "@RecoveryGridBot",
+    "telegram:site": "@RecoveryGridBot",
+  },
 };
 
 export const viewport: Viewport = {
@@ -38,7 +74,6 @@ export default function RootLayout({
   return (
     <html lang="uk" className={inter.variable}>
       <body className="font-sans antialiased">
-        <CustomCursor />
         {children}
       </body>
     </html>

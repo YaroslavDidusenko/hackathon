@@ -24,13 +24,6 @@ body {
   color: #e2e8f0;
   font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
-  cursor: none;
-}
-
-@media (max-width: 768px) {
-  body {
-    cursor: auto;
-  }
 }
 
 ::selection {
