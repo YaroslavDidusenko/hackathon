@@ -74,10 +74,11 @@ const stats = [
     isNumeric: true,
   },
   {
-    value: 0,
-    display: "млн",
+    value: 10,
+    display: "10 млн",
     label: "людей без світла в пікові періоди",
-    isNumeric: false,
+    suffix: " млн",
+    isNumeric: true,
   },
 ];
 
