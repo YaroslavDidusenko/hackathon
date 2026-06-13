@@ -122,7 +122,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Recovery Energy Grid
+          R E G
         </motion.h1>
         <motion.p
           className="mt-4 text-xl text-text-secondary"
